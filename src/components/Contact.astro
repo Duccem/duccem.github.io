@@ -1,0 +1,82 @@
+<div class="mx-auto max-w-6xl py-10 min-h-screen grid grid-cols-1 md:grid-cols-2">
+    <div class="flex flex-col min-h-screen px-10 h-full justify-around ">
+        <p class="text-6xl font-bold">
+            Just say hi.
+        </p>
+        <p class="text-lg font-normal">
+            I`m always open to hear and discuss your projects proposals, teach you about software development.
+            I'm also open if you just want to talk.
+        </p>
+        <div>
+            <p class="text-lg font-normal text-gray-500 m-0">
+                Email at me
+            </p>
+            <p class="text-lg font-bold m-0">
+                ducen29@gmail.com
+            </p>
+        </div>
+        <div>
+            <p class="text-lg font-normal text-gray-500 m-0">
+                Follow
+            </p>
+            <div class="flex gap-4 mt-5">
+                <a 
+                    href="https://www.linkedin.com/in/jose-manuel-veliz/"
+                    target="_blank"
+                    class="h-10 w-10 rounded-full border border-black shadow-[3px_3px_#000] flex items-center justify-center hover:shadow-[7px_7px_#282825] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:cursor-pointer transition-all">
+                    <img src="/images/linkedin.png" class="w-6" alt="">
+                </a>
+                <a 
+                    href="https://github.com/Duccem"
+                    target="_blank"
+                    class="h-10 w-10 rounded-full border border-black shadow-[3px_3px_#000] flex items-center justify-center hover:shadow-[7px_7px_#282825] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:cursor-pointer transition-all">
+                    <img src="/images/github.png" class="w-6" alt="">
+                </a>
+                <a 
+                    href="https://twitter.com/Ducen29"
+                    target="_blank"
+                    class="h-10 w-10 rounded-full border border-black shadow-[3px_3px_#000] flex items-center justify-center hover:shadow-[7px_7px_#282825] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:cursor-pointer transition-all">
+                    <img src="/images/twitter.png" class="w-6" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col h-full justify-center px-10 md:pl-10">
+        <form class="flex flex-col gap-7">
+            <input id="nombre" type="text" class="border-2 border-black rounded-full h-12 pl-[5%] shadow-[3px_3px_#282825] hover:shadow-[6px_6px_#282825] focus-visible:outline-none  transition-all text-gray-600 focus:text-black" placeholder="Your Name*">
+            <input id="correo" type="text" class="border-2 border-black rounded-full h-12 pl-[5%] shadow-[3px_3px_#282825] hover:shadow-[6px_6px_#282825] focus-visible:outline-none  transition-all text-gray-600 focus:text-black" placeholder="Your Email*">
+            <textarea id="message" class="border-2 border-black rounded-2xl p-[5%] shadow-[3px_3px_#282825] hover:shadow-[6px_6px_#282825] focus-visible:outline-none  transition-all text-gray-600 focus:text-black resize-none" maxlength="220" name="" id="" cols="30" rows="4" placeholder="How can i help you?"></textarea>
+            <button id="send" class="mt-3 font-bold border-black border-2 w-[300px] p-3 rounded-full bg-[#F7CB45] shadow-[3px_3px_#282825] hover:shadow-[7px_7px_#282825] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-all self-end">
+                Contact me
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('send').addEventListener('click', function (e) {
+
+        e.preventDefault();
+        let message = (document.getElementById('message') as HTMLInputElement).value + " " + (document.getElementById('correo') as HTMLInputElement).value;
+        let sub = (document.getElementById('nombre') as HTMLInputElement).value
+        console.log(message, sub)
+        let params = toParams({ subject: sub, text: message, access_token: 'd8q08a0qa5htfqiz6n75134s' });
+        var request = new XMLHttpRequest();
+        request.open("POST", "https://postmail.invotes.com/send", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send(params);
+        alert('Mensaje enviado. Gracias por elegirnos para realizar tus ideas realidad!!');
+        (document.getElementById('message') as HTMLInputElement).value = '';
+        (document.getElementById('correo') as HTMLInputElement).value = '';
+        (document.getElementById('nombre') as HTMLInputElement).value = '';
+
+    });
+    function toParams(data_js) {
+        var form_data = [];
+        for (var key in data_js) {
+            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+        }
+
+        return form_data.join("&");
+    }
+</script>
