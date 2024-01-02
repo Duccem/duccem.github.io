@@ -1,80 +1,45 @@
 ---
-import Navbar from '../components/Navbar.astro'
 import Presentation from '../components/Presentation.astro';
 import About from '../components/About.astro';
 import Curriculum from '../components/Curriculum.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Blog from '../components/Blog.astro';
 import Contact from '../components/Contact.astro';
-import '@fontsource/nunito';
+import MainLayout from '../layouts/MainLayout.astro';
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="https://raw.githubusercontent.com/Duccem/duccem.github.io/main/public/images/logo-personal-negro.ico"/>
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@Ducen29" />
-		<meta name="twitter:title" content="Duccem | Full Stack Software Engineer" />
-		<meta name="twitter:description" content="Since 2018 working for local companies in my country, where I specialized  in the development of administrative software..."/>
-		<meta name="twitter:image" content="https://raw.githubusercontent.com/Duccem/duccem.github.io/main/public/images/cover_page.png" /
-		<meta property="og:url" content="https://duccem.github.io" />
-		<meta property="og:title" content="Duccem | Full Stack Software Engineer" />
-		<meta property="og:description" content="Since 2018 working for local companies in my country, where I specialized  in the development of administrative software..." />
-		<meta property="og:image" content="https://raw.githubusercontent.com/Duccem/duccem.github.io/main/public/images/cover_page.png" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Duccem | Full Stack Software Engineer</title>
-	</head>
-	<body>
-		<div class="">
-			<section class="min-h-screen box-border bg-[#F9F5F2] overflow-x-hidden pt-5">
-				<div class="mx-auto max-w-6xl">
-					<Navbar/>
-					<div class="grid grid-cols-1 md:grid-cols-2 items-center h-full">
-						<Presentation/>
-						<div class="hidden md:flex justify-center items-center">
-							<img src="https://raw.githubusercontent.com/Duccem/duccem.github.io/main/public/images/banner.png" alt="">
-						</div>
+<MainLayout title="Duccem | Senior Software Engineer">
+	<div class="">
+		<section class="min-h-screen box-border overflow-x-hidden pt-5">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid grid-cols-1 md:grid-cols-2 items-center h-full">
+					<Presentation/>
+					<div class="hidden md:flex justify-center items-center">
+						<img src="/images/page/banner.png" alt="">
 					</div>
 				</div>
-			</section>
-			<section id="about">
-				<About/>
-			</section>
-			<section id="cv">
-				<Curriculum/>
-			</section>
-			<section id="portfolio">
-				<p class="text-center font-bold text-5xl my-16">Featured projects</p>
-				<Portfolio/>
-			</section>
-			<section id="blog">
-				<Blog/>
-			</section>
-			<section class="min-h-screen box-border bg-[#F9F5F2] overflow-x-hidden pt-5" id="contact">
-				<Contact/>
-			</section>
-		</div>
-	</body>
-</html>
+			</div>
+		</section>
+		<section id="about">
+			<About/>
+		</section>
+		<section id="cv">
+			<Curriculum/>
+		</section>
+		<section id="portfolio">
+			<p class="text-center font-bold text-5xl my-16">Featured projects</p>
+			<Portfolio/>
+		</section>
+		<section id="blog">
+			<Blog/>
+		</section>
+		<section class="min-h-screen box-border bg-[#F9F5F2] overflow-x-hidden pt-5" id="contact">
+			<Contact/>
+		</section>
+	</div>
+</MainLayout>
 
-<style is:global>
-	body {
-		padding: 0;
-		margin: 0;
-		font-family: 'Nunito', Arial, Helvetica, sans-serif;
-	}
 
-	html ::-webkit-scrollbar {
-    	width: 10px;
-	}
-	html ::-webkit-scrollbar-track {
-		background-color: #F9F5F2;
-	}
 
-	html ::-webkit-scrollbar-thumb {
-		background: #91A8ED;
-		border: 3px solid #282825;
-		border-radius: 5px;
-	}
-</style>
+
